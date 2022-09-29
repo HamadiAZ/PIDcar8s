@@ -1,0 +1,5 @@
+{
+    "sketch": "a_PIDcar\\a_PIDcar.ino",
+    "configuration": "cpu=atmega2560",
+    "board": "arduino:avr:mega"
+}
