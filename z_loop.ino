@@ -2,14 +2,16 @@
 void loop()
 {
     // Run_Robot();
-    // pidfollow();
+     pidfollow(0);
+     updatesensors('W');
+     printreadings(2000);
     //updatesensors();
 
-  forward(200,200);
-     delay(2000);
-     forward(200,0);
-     delay(800);
-     stope();delay(4000);
+//  forward(200,200);
+//     delay(2000);
+//     forward(200,0);
+//     delay(800);
+//     stope();delay(4000);
     //*********************************************************
     //	forward(200,200);
     // delay(1300);

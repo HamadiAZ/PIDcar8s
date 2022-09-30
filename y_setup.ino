@@ -17,8 +17,8 @@ void setup()
     // PathColorSettings[]={255,255,0,0,0};
 
     //// *********************************************************
-    // Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
+     Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
 
-    //calibratesensors();
-    // BLOCKMOVEMENT = true;
+    calibratesensors();
+     BLOCKMOVEMENT = true;
 }

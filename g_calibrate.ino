@@ -14,7 +14,7 @@ void calibratesensors()
     }
     leds[2] = CHSV(160, 255, 150);
     FastLED.show();
-    delay(700);
+    delay(400);
     for (int i = 0; i < NUM_LEDS; i++)
     {
         leds[i] = CHSV(0, 0, 0);
@@ -24,7 +24,7 @@ void calibratesensors()
     int hue = 1;
     for (uint8_t i = 0; i < NUM_LEDS; i++)
     {
-        for (uint8_t j = 0; j < 30; j++) // 30 PRESQUE TEMP BECH Y3ML CALIBRATE
+        for (uint8_t j = 0; j < 5; j++) // 30 PRESQUE TEMP BECH Y3ML CALIBRATE
         {
             qtr.calibrate();
             delay(10);

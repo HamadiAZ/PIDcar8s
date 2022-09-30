@@ -74,10 +74,10 @@ void updatesensors(char S = 'B', WhichLineToFollow direction = WhichLineToFollow
                     ledColor = constrain(PathColorSettings[i] + lineFollowingColor, 0, 255);
             }
             // ledColor = constrain(PathColorSettings[i] + lineFollowingColor, 0, 255);
-            Serial.print(" // colorr : ");
-            Serial.print(ledColor);
+            //Serial.print(" // colorr : ");
+            //Serial.print(ledColor);
             leds[i] = CHSV(ledColor, 255, brightness);
-            Serial.println("******************************************");
+           // Serial.println("******************************************");
         }
     }
     FastLED.show();
