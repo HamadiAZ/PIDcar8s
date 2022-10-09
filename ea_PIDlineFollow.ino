@@ -6,9 +6,9 @@ const PROGMEM float TURNFACTOR = 1.1;      // multiplier=1 GADCH YON9ES VITESS F
 const PROGMEM uint8_t rightMaxSpeed = 170; // 255  50
 const PROGMEM uint8_t leftMaxSpeed = 170;  //
 
-const PROGMEM float Kp = 0.02;             // 255: 0.1     110: 0.2
-const PROGMEM float Ki = 0.04;             // 255: 0.05    110: 0.05
-const PROGMEM float Kd = 0;             // 255: 0.003   110: 0.004
+const PROGMEM float Kp = 0.05;             // 255: 0.1     110: 0.2
+const PROGMEM float Ki = 0.0;             // 255: 0.05    110: 0.05
+const PROGMEM float Kd = 0.4;             // 255: 0.003   110: 0.004
 
 
 void pidfollow(int C = 1)

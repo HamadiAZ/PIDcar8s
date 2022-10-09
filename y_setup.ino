@@ -1,6 +1,5 @@
 void setup()
 {
-    initialCheck();
     pinMode(IN1, OUTPUT);
     pinMode(IN2, OUTPUT);
     pinMode(IN3, OUTPUT);
@@ -14,11 +13,10 @@ void setup()
     qtr.setTypeAnalog(); // or setTypeAnalog()
     qtr.setSensorPins(analog_pins, SensorCount);
 
-    // PathColorSettings[]={255,255,0,0,0};
-
     //// *********************************************************
-     Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
-
+    // Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
+    initialCheck();
+    initialCalcTimes();
     calibratesensors();
-     BLOCKMOVEMENT = true;
+    // BLOCKMOVEMENT = true;
 }

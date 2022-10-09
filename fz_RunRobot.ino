@@ -7,7 +7,7 @@ void Run_Robot(char C = 'A')
     int r;
     int delayBetweenEachAction = 200;
     if (pathSteps != 0 && isPathTimesArrayCorrect == true)
-        delayBetweenEachAction = pathTimes[pathSteps - 1];
+        delayBetweenEachAction = pathTimes[pathSteps];
     if (C == 'A')
         autoColorChooser();
     else
@@ -30,18 +30,14 @@ void Run_Robot(char C = 'A')
         */
         if (compare(IntDsensors, "111xx") || compare(IntDsensors, "xx111"))
             case_111xx_xx111();
-        /*
-        else if(compare(IntDsensors,"111x0")) case_111x0();
-        else if(compare(IntDsensors,"0x111")) case_0x111();
-        */
+        /*else if(compare(IntDsensors,"111x0")) case_111x0();
+        else if(compare(IntDsensors,"0x111")) case_0x111();*/
         else if (compare(IntDsensors, "110x1") || compare(IntDsensors, "1x011"))
             case_110x1_1x011(tempsInterval);
         else if (CountLines() == 2)
             case_2_lines();
         else
-        {           // pid follow
-            ELSE(); // THIS ONE Serial.print(" ELSE PID WORKING ");
-        }
+            ELSE(); // pid follow
     }
     else
     { // pid follow // else oof millis-Taction<Tempdifferenceminimum
