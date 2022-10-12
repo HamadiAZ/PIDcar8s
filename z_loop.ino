@@ -1,13 +1,11 @@
 
 void loop()
 {
-     Run_Robot();
-   // pidfollow();
-    // updatesensors('W');
-    // printreadings(2000);
-    //updatesensors();
-
- // forward(170,170);
+   // Run_Robot();
+   // pidfollow(false);
+  // updatesensors('B',WhichLineToFollow::LEFT,true);
+//printreadings(3000);
+ //forward(200,160);
 //     delay(2000);
 //     forward(200,0);
 //     delay(800);
@@ -18,11 +16,12 @@ void loop()
     // left(200,100);
     // delay(220);
     // ELSE();
-    // Serial.println(qtr.CheckonLine());
+//     Serial.print("PATHSTEPS : ");
+//     Serial.println(pathSteps); 
     // forward(200,200);
     // delay(1000);
     ////obstacleRight();
     // wallfollow(14, 'R', true);
-    // pidfollow();
+     pidfollow();
     //
 } // END OF THE LOOP

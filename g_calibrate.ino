@@ -24,7 +24,7 @@ void calibratesensors()
     int hue = 1;
     for (uint8_t i = 0; i < NUM_LEDS; i++)
     {
-        for (uint8_t j = 0; j < 9; j++) // 30 PRESQUE TEMP BECH Y3ML CALIBRATE
+        for (uint8_t j = 0; j < 10; j++) // 30 PRESQUE TEMP BECH Y3ML CALIBRATE
         {
             qtr.calibrate();
             delay(5);
@@ -66,26 +66,25 @@ void calibratesensors()
 void calibratE()
 {
 
-    Serial.println("starting calibration");
+    //Serial.println("starting calibration");
     for (uint8_t i = 0; i < 150; i++)
     {
         qtr.calibrate();
         delay(10);
     }
 
-    Serial.println("calibration DONE");
+    //Serial.println("calibration DONE");
     // print the calibration minimum values measured when emitters were on
     for (uint8_t i = 0; i < SensorCount; i++)
     {
         Serial.print(qtr.calibrationOn.minimum[i]);
         Serial.print(' ');
     }
-    Serial.println();
     // print the calibration maximum values measured when emitters were on
     for (uint8_t i = 0; i < SensorCount; i++)
     {
         Serial.print(qtr.calibrationOn.maximum[i]);
-        Serial.print(' ');
+        //Serial.print(' ');
     }
     Serial.println(" ***********************************************************");
 }

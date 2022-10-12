@@ -9,8 +9,8 @@ void stope(int br = 0)
         digitalWrite(IN2, LOW);
         digitalWrite(IN3, LOW);
         digitalWrite(IN4, LOW);
-        if (BLOCKMOVEMENT == false)
-            Serial.println("stop without BRAKE");
+        if (BLOCKMOVEMENT == false);
+            //Serial.println("stop without BRAKE");
     }
     else
     {
@@ -20,8 +20,8 @@ void stope(int br = 0)
         digitalWrite(IN2, 1);
         digitalWrite(IN3, 1);
         digitalWrite(IN4, 1);
-        if (BLOCKMOVEMENT == false)
-            Serial.println("BRAAAKE !!!");
+        if (BLOCKMOVEMENT == false);
+            //Serial.println("BRAAAKE !!!");
     }
 }
 
@@ -90,6 +90,6 @@ void back(int R = 110, int L = 110)
         digitalWrite(IN2, LOW);
         digitalWrite(IN3, LOW);
         digitalWrite(IN4, HIGH);
-        Serial.print(" back ");
+        //Serial.print(" back ");
     }
 }

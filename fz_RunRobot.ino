@@ -1,6 +1,7 @@
 
 void Run_Robot(char C = 'A')
 { // C color : A AUTO COLOR FROM String path B black W white
+    RUNROBOT=true;
     // be carefull , if COLOR GIVEN , IT WILL BE IGNORED FROM THE PATH READINGS!!!!!
     // if AUTO A IS given , lezm Tabta l path b COLOR !!
     int tempsInterval = 200; // TEMPS DE DIFFERENCE ENTRE CHANGEMENT DE VALEURS DE CAPTEURS , utilise dans changement de mode
@@ -10,31 +11,46 @@ void Run_Robot(char C = 'A')
         delayBetweenEachAction = pathTimes[pathSteps];
     if (C == 'A')
         autoColorChooser();
-    else
-        updatesensors(C);
-
-    if (path[pathSteps] == 'C')
+    else{
+      if(pathSteps==0 && (path[0]=='W' || path[0]=='B') && C!='W' && C!='B'){
+        updatesensors(path[0],WhichLineToFollow::AUTO,autoRightAndLeft);
+        pathSteps++;
+        Taction=millis();
+      }
+      else updatesensors(C,WhichLineToFollow::AUTO,autoRightAndLeft);
+    }
+        
+    if (path[pathSteps] == 'D'){
+      autoRightAndLeft=false;
+      pathSteps++;
+    }else if (path[pathSteps] == 'E'){
+      autoRightAndLeft=true;
+      pathSteps++;
+    }
+    else if (path[pathSteps] == 'C')
     {
         conditions_manager();
     } // capteurs couleur , capteur distance
     else if (millis() - Taction > delayBetweenEachAction)
     {
         /*5 POSIBILITIES The Robo Will encounter
-        1 1 1 1 1     =>  START: F OR "CROSS + " or " T " SUIVANT la String path ye3ref
+        x 1 1 1 1 1 1 x    =>  START: F OR "CROSS + " or " T " SUIVANT la String path ye3ref
               => possible : F , R , L , S : STOP
-        1 1 x 0 0    =>  -| T intersection left turn OR F
-        0 0 x 1 1    =>  |- T intersection right turn OR F
-        0 0 0 0 0    =>  OUT OF THE LINE : STOP  S or
-        1 x 0 x 1    => changement de mode
+        1 1 1 1 x x 0 0    =>  -|  intersection left turn OR F
+        0 0 x x 1 1 1 1    =>  |-  intersection right turn OR F
+        0 0 0 0 0 0 0 0    =>  OUT OF THE LINE : STOP  S or
+        1 1 x 0 0 x 1 1  => changement de mode
         ELSE  == The Robo is on the line,
         */
-        if (compare(IntDsensors, "111xx") || compare(IntDsensors, "xx111"))
-            case_111xx_xx111();
-        /*else if(compare(IntDsensors,"111x0")) case_111x0();
-        else if(compare(IntDsensors,"0x111")) case_0x111();*/
-        else if (compare(IntDsensors, "110x1") || compare(IntDsensors, "1x011"))
+        if (compare(IntDsensors, "x111111x") || compare(IntDsensors, "xx111111") || compare(IntDsensors, "111111xx"))
+            case_11111();
+        else if (compare(IntDsensors, "1111xx00"))
+            case_111x0();
+        else if (compare(IntDsensors, "00xx1111"))
+            case_0x111();
+        else if (compare(IntDsensors, "11xx0x11") || compare(IntDsensors, "11x0xx11"))
             case_110x1_1x011(tempsInterval);
-        else if (CountLines() == 2)
+        else if ( compare(IntDsensors,"1x0x1x00")|| compare(IntDsensors,"10xx1x00"))
             case_2_lines();
         else
             ELSE(); // pid follow
@@ -42,7 +58,7 @@ void Run_Robot(char C = 'A')
     else
     { // pid follow // else oof millis-Taction<Tempdifferenceminimum
         ELSE();
-        Serial.println(" HE DIDNT READ A PATH STRRING DUE TO TIME RESTRICTION , PID WORKING ");
+        Serial.println(" TIME RESTRICTION ,PID WORKING");
     }
     // THIS ONE Serial.print("path(searching for:) :");Serial.print(path[pathSteps]);Serial.print(" step: ");Serial.print(pathSteps);Serial.print(" ");
 }

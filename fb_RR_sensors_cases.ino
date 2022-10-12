@@ -1,8 +1,8 @@
-void case_111xx_xx111()
+void case_11111()
 { // compare (readings , string elli feha les X lezm tkoun 2eme parameter)
     if (path[pathSteps] == 'F')
     {
-        Serial.println("FORWARD : PATH F : ");
+        ////Serial.println("FORWARD : PATH F : ");
         myledwhiteon();
         pathSteps++;
         forward();
@@ -11,23 +11,23 @@ void case_111xx_xx111()
     }
     else if (path[pathSteps] == 'R')
     {
-        Serial.println("90° RIGHT : PATH R : ");
+        ////Serial.println("90° RIGHT : PATH R : ");
         pathSteps++;
         myledwhiteon();
         right(140, 180);
         delay(150);
         while (1)
         {
-            right(100, 120); // Serial.println("right");
+            right(100, 120); // ////Serial.println("right");
             updatesensors(currentLineColor);
-            if ((IntDsensors[2] == 1) && (IntDsensors[0] == 0))
+            if ((IntDsensors[4] == 1) && (IntDsensors[0] == 0))
                 break;
         }
         Taction = millis();
     }
     else if (path[pathSteps] == 'L')
     {
-        Serial.println("90° LEFT : PATH L : ");
+        ////Serial.println("90° LEFT : PATH L : ");
         pathSteps++;
         myledwhiteon();
         left(180, 140);
@@ -35,16 +35,16 @@ void case_111xx_xx111()
         while (1)
         {
 
-            left(120, 100); // Serial.println("left");
+            left(120, 100); // ////Serial.println("left");
             updatesensors(currentLineColor);
-            if ((IntDsensors[3] == 1) && (IntDsensors[0] == 0))
+            if ((IntDsensors[6] == 1) && (IntDsensors[0] == 0))
                 break;
         }
         Taction = millis();
     }
     else if (path[pathSteps] == 'l')
     {
-        Serial.print("left 90 safya with pid");
+        ////Serial.print("left 90 safya with pid");
         int t = millis();
         myledwhiteon();
         while ((millis() - t) < 500)
@@ -56,7 +56,7 @@ void case_111xx_xx111()
     }
     else if (path[pathSteps] == 'r')
     {
-        Serial.print("right 90 safya with pid");
+        ////Serial.print("right 90 safya with pid");
         int t = millis();
         myledwhiteon();
         while ((millis() - t) < 500)
@@ -68,7 +68,7 @@ void case_111xx_xx111()
     }
     else if (path[pathSteps] == 's')
     {
-        Serial.println("DEAD STOP , PATHSTRING : s DONE");
+        ////Serial.println("DEAD STOP , PATHSTRING : s DONE");
         stope();
         myledwhiteon();
         delay(100000);
@@ -78,7 +78,7 @@ void case_111xx_xx111()
         // Y3NI LGUEE DOURA OR INTERSECTION W MALGUECH 7AJA S7I7A FEL PATHSTRING EXEMPLE 00X11 W YALGA LEFT L
         // pathSteps++;
         ELSE();
-        Serial.println("SENT TO PID FROM 11111 CONDITION");
+        ////Serial.println("SENT TO PID FROM 11111 CONDITION");
         // goto jump; // INAGGEZ L ADD PATH , if needed remove the comment above
     }
     // jump:;
@@ -94,14 +94,14 @@ void case_110x1_1x011(int tempsInterval)
         if ((millis() - lastIntDsensorstimes[i]) > tempsInterval)
             check = false;
     }
-    Serial.print("CHECK = ");
-    Serial.print(check);
+    ////Serial.print("CHECK = ");
+    ////Serial.print(check);
     if (path[pathSteps] == 'V')
     {
         pathSteps++; // BECH INAGGEZ EL "V" w ychof V YDOUR M3AHA  L wale R
         if ((path[pathSteps] == 'L') || (path[pathSteps] == 'l'))
         {
-            Serial.print("left 45° angle V");
+            ////Serial.print("left 45° angle V");
             myledwhiteon();
             while (CountLines() == 2)
             {
@@ -112,7 +112,7 @@ void case_110x1_1x011(int tempsInterval)
         }
         else if ((path[pathSteps] == 'R') || (path[pathSteps] == 'r'))
         {
-            Serial.print("right 45° angle V");
+            ////Serial.print("right 45° angle V");
             myledwhiteon();
             while (CountLines() == 2)
             {
@@ -124,7 +124,7 @@ void case_110x1_1x011(int tempsInterval)
         else
         {
             ELSE();
-            Serial.print("SENT TO PID FROM CountLines()==2 CONDITION INSIDE compare 110x1 1x011");
+            ////Serial.print("SENT TO PID FROM CountLines()==2 CONDITION INSIDE compare 110x1 1x011");
         }
     }
 
@@ -136,7 +136,7 @@ void case_110x1_1x011(int tempsInterval)
         {
             Taction = millis();
             Prevc = 'W';
-            Serial.println("SWITCHED TO WHITE LINE : PATH W: ");
+            ////Serial.println("SWITCHED TO WHITE LINE : PATH W: ");
             pathSteps++;
             myledwhiteon();
             mode == 'N';
@@ -146,7 +146,7 @@ void case_110x1_1x011(int tempsInterval)
         {
             Taction = millis();
             Prevc = 'B';
-            Serial.println("SWITCHED TO BLACK LINE : PATH W: ");
+            ////Serial.println("SWITCHED TO BLACK LINE : PATH W: ");
             pathSteps++;
             myledwhiteon();
             currentLineColor = 'B';
@@ -175,7 +175,7 @@ void case_110x1_1x011(int tempsInterval)
     else
     {
         ELSE();
-        Serial.print("SENT TO PID FROM 1x0x1 CONDITION");
+        ////Serial.print("SENT TO PID FROM 1x0x1 CONDITION");
     }
 }
 
@@ -186,45 +186,50 @@ void case_2_lines()
         pathSteps++; // BECH INAGGEZ EL "V" w ychof V YDOUR M3AHA  L wale R
         if ((path[pathSteps] == 'L') || (path[pathSteps] == 'l'))
         {
-            Serial.print("left 45° angle V");
+            ////Serial.print("left 45° angle V");
             myledwhiteon();
-            while (CountLines() == 2)
+            left(210, 0);
+            delay(100);
+            while (true)
             {
                 updatesensors(currentLineColor);
-                left(120, 40);
+                left(210, 100);
+                if ((IntDsensors[0] == 0) && (IntDsensors[1] == 0)&& (IntDsensors[5] == 1)&& (IntDsensors[7] == 0)) break;
             }
+            Taction = millis();
             pathSteps++;
         }
         else if ((path[pathSteps] == 'R') || (path[pathSteps] == 'r'))
         {
-            Serial.print("right 45° angle V");
+            ////Serial.print("right 45° angle V");
             myledwhiteon();
             while (CountLines() == 2)
             {
                 updatesensors(currentLineColor);
-                right(40, 120);
+                right(40, 190);
             }
+            Taction = millis();
             pathSteps++;
         }
         else
         {
             ELSE();
-            Serial.print("SENT TO PID FROM CountLines()==2 CONDITION");
+            ////Serial.print("SENT TO PID FROM CountLines()==2 CONDITION");
         }
     }
     else
     {
         ELSE();
-        Serial.print("SENT TO PID FROM CountLines()==2 CONDITION");
+        ////Serial.print("SENT TO PID FROM CountLines()==2 CONDITION");
     }
 }
 
 void case_111x0()
 { //  left or f
-    // Taction=millis();
+    
     if (path[pathSteps] == 'F')
     {
-        Serial.println("FORWARD : PATH F : ");
+        ////Serial.println("FORWARD : PATH F : ");
         pathSteps++;
         forward();
         delay(100);
@@ -232,28 +237,22 @@ void case_111x0()
     }
     else if (path[pathSteps] == 'L')
     {
-        Serial.println("90° LEFT : PATH L : ");
+        ////Serial.println("90° LEFT : PATH L : ");
         pathSteps++;
         delay(50);
         while (1)
         {
 
-            left(200, 100); // Serial.println("left");
+            left(200, 100); // ////Serial.println("left");
             updatesensors(currentLineColor);
             if (IntDsensors[0] == 1)
                 break;
         }
         Taction = millis();
     }
-    else if (path[pathSteps] == 's')
-    {
-        Serial.println("DEAD STOP , PATHSTRING : s DONE");
-        stope();
-        delay(100000);
-    }
     else if (path[pathSteps] == 'l')
     {
-        Serial.print("left 90 safya with pid");
+        ////Serial.print("left 90 safya with pid");
         int t = millis();
         while ((millis() - t) < 2000)
         {
@@ -264,20 +263,19 @@ void case_111x0()
     }
     else
     { // ERREUR DANS PATHSTRING GO FOR PID SAFER
-        // pathSteps++; ZA3MA KEN Y8LAT AMA 5IR N5ALLOH IZID PATH WALE LE ???
         ELSE();
-        Serial.print("SENT TO PID FROM 11x00 CONDITION");
+        //////Serial.print("SENT TO PID FROM 11x00 CONDITION");
     }
 }
 
 void case_0x111()
 { //  right or f //
-    Serial.print("debugging ENTER LOOP  ");
-    Serial.println(path[pathSteps]);
+    //////Serial.print("debugging ENTER LOOP  ");
+    //////Serial.println(path[pathSteps]);
     if (path[pathSteps] == 'F')
     {
         Taction = millis();
-        Serial.println("FORWARD : PATH F : ");
+       // ////Serial.println("FORWARD : PATH F : ");
         pathSteps++;
         forward();
         delay(100);
@@ -285,28 +283,22 @@ void case_0x111()
     }
     else if (path[pathSteps] == 'R')
     {
-        Serial.println("90° RIGHT : PATH R : ");
+        //////Serial.println("90° RIGHT : PATH R : ");
         pathSteps++;
         delay(50);
         while (1)
         {
-            right(100, 200); // Serial.println("right");
+            right(100, 200); // ////Serial.println("right");
             updatesensors(currentLineColor);
-            if (IntDsensors[4] == 1)
+            if (IntDsensors[7] == 1)
                 break;
         }
         Taction = millis();
-    }
-    else if (path[pathSteps] == 's')
-    {
-        Serial.println("DEAD STOP , PATHSTRING : s DONE");
-        stope();
-        delay(100000);
     }
     else
     { // ERREUR DANS PATHSTRING GO FOR PID SAFER
         // pathSteps++; ZA3MA KEN Y8LAT AMA 5IR N5ALLOH IZID PATH WALE LE ???
         ELSE();
-        Serial.println("SENT TO PID FROM 00x11 CONDITION");
+        //////Serial.println("SENT TO PID FROM 00x11 CONDITION");
     }
 }

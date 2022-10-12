@@ -5,20 +5,21 @@ void autoColorChooser()
         char c = path[pathSteps++]; // Serial.println(pathSteps);
         if (isPathArrayCorrect == false)
             c = 'B';
-        Serial.print("PATH[0] LINE COLOR INITIALISED : ");
-        Serial.println(c);
+       // Serial.print("PATH[0] LINE COLOR INITIALISED : ");
+        //Serial.println(c);
         Prevc = c;
-        updatesensors(Prevc);
+        updatesensors(Prevc,WhichLineToFollow::AUTO,autoRightAndLeft);
         for (int i = 0; i < SensorCount; i++)
         {
             lastIntDsensors[i] = IntDsensors[i];
         }
+        Taction=millis();
     }
     else if (path[pathSteps] == 'B')
     {
         if (Prevc == 'W')
         {
-            updatesensors('W'); // TW Y3ML UPDATE BEL W AMA MODE B Y3NI YSTANA FI CIONDITION BECH YBADDEL LEL LINE BLACK
+            updatesensors('W',WhichLineToFollow::AUTO,autoRightAndLeft); // TW Y3ML UPDATE BEL W AMA MODE B Y3NI YSTANA FI CIONDITION BECH YBADDEL LEL LINE BLACK
             mode = 'B';         // mode S start ; W switch from BtoW LINE; B WtoB ;
         }
     }
@@ -26,13 +27,13 @@ void autoColorChooser()
     {
         if (Prevc == 'B')
         {
-            updatesensors('B');
+            updatesensors('B',WhichLineToFollow::AUTO,autoRightAndLeft);
             mode = 'W'; // mode S start ; W switch from BtoW LINE; B WtoB ;
         }
     }
     else
     {
-        updatesensors(Prevc); // Serial.println(" debugging 1 ");
+        updatesensors(Prevc,WhichLineToFollow::AUTO,autoRightAndLeft); // Serial.println(" debugging 1 ");
         mode = 'N';           // ANYTHING EXCEPT FOR B AND W
     }
     // ========================================== affichage du path dans les led ============================================
@@ -68,7 +69,8 @@ void autoColorChooser()
         {
             PathColorSettings[i] = 0;
         }
-        PathColorSettings[2] = 255; // 5 led : 2 wastanya
+        PathColorSettings[4] = 255;
+        PathColorSettings[3] = 255; // 5 led : 2 wastanya
                                     // PathColorSettings[3]=255; // 8 led : 3 ET 4 MIDDLE
                                     // PathColorSettings[4]=255; // 8 led : 3 ET 4 MIDDLE
     }
@@ -81,6 +83,19 @@ void autoColorChooser()
         {
             PathColorSettings[i] = 0;
         }
+    }
+    else if (path[pathSteps]=='V') // 
+    {
+        for (int i = 1; i < NUM_LEDS - 1; i++)
+        {
+            PathColorSettings[i] = 0;
+        }
+        PathColorSettings[0] = 255;
+        PathColorSettings[NUM_LEDS - 1] = 255;
+        if (path[pathSteps+1]=='L') PathColorSettings[1] = 255;
+        if (path[pathSteps+1]=='R') PathColorSettings[6] = 255;
+        
+        
     }
     else if (path[pathSteps] == 's')
     {
