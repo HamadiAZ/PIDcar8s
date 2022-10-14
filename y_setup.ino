@@ -14,9 +14,11 @@ void setup()
     qtr.setSensorPins(analog_pins, SensorCount);
 
     //// *********************************************************
-     //Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
+   // Serial.begin(9600); //  //// DONT FORGOT TO DISABLE THIS BEFORE STARTING THE ROBOT *********************************************************
     initialCheck();
     initialCalcTimes();
     calibratesensors();
-   // BLOCKMOVEMENT = true;
+   //BLOCKMOVEMENT = true;
+   Kp = 0.05;             // 255: 0.1     110: 0.2
+   Kd = 0.14;
 }

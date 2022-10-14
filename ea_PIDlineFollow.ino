@@ -3,16 +3,18 @@ const PROGMEM float TURNFACTOR = 1.1;      // multiplier=1 GADCH YON9ES VITESS F
 //const PROGMEM float Kp = 0.07;             // black line
 //const PROGMEM float Ki = 0.04;             // 255: 0.05    110: 0.05
 //const PROGMEM float Kd = 0.21;             // 255: 0.003   110: 0.004
-const PROGMEM uint8_t rightMaxSpeed = 200; // 255  50
-const PROGMEM uint8_t leftMaxSpeed = 160;  //
+const PROGMEM uint8_t rightMaxSpeed = 170; // 255  50
+const PROGMEM uint8_t leftMaxSpeed = 170;  //
 
-const PROGMEM float Kp = 0.08;             // 255: 0.1     110: 0.2
+ float Kp = 0.08;             // 255: 0.1     110: 0.2
 const PROGMEM float Ki = 0.0;             // 255: 0.05    110: 0.05
-const PROGMEM float Kd = 0.14;             // 255: 0.003   110: 0.004
+ float Kd = 0.14;             // 255: 0.003   110: 0.004
 
-
+               // 255: 0.003   110: 0.004
 void pidfollow(int C = 1)
 {
+
+
   // SetPoint = (numberOfSensors-1)*500
   int SetPoint = 3500; // 2000
   int med_Speed_R;

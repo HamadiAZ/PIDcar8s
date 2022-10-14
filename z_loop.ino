@@ -1,7 +1,7 @@
 
 void loop()
 {
-   // Run_Robot();
+    Run_Robot();
    // pidfollow(false);
   // updatesensors('B',WhichLineToFollow::LEFT,true);
 //printreadings(3000);
@@ -18,10 +18,10 @@ void loop()
     // ELSE();
 //     Serial.print("PATHSTEPS : ");
 //     Serial.println(pathSteps); 
-    // forward(200,200);
+    // forward(170,170);
     // delay(1000);
     ////obstacleRight();
     // wallfollow(14, 'R', true);
-     pidfollow();
+    // pidfollow();
     //
 } // END OF THE LOOP
