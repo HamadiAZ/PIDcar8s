@@ -19,6 +19,6 @@ void setup()
     initialCalcTimes();
     calibratesensors();
    //BLOCKMOVEMENT = true;
-   Kp = 0.05;             // 255: 0.1     110: 0.2
-   Kd = 0.14;
+    forward(130,130);
+    delay(160);
 }

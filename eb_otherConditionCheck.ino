@@ -18,7 +18,7 @@ boolean otherconditionsCheck()
     case 0:
         // Serial.println(" Condition 1 check ");
         // if(Rdistance<100){return true;} example
-        return false;
+        return true;
     case 1:
         Serial.println(" Condition 2 check ");
 

@@ -24,9 +24,8 @@ static const uint8_t analog_pins[] = {A7, A6, A5, A4, A3, A2, A1, A0};
 
 // ********************************************* IMPORTANT PATH STRING : *************************************************************************
 const int defaultTime = 300;
-const int pathDistances[] = {0, 380,0,0,160,0,10,50,10,10}; // start with 0,distance en cm
-//const char path[] = "BVLDVLEFFs";                  // stope with s
-const char path[] = "BRs";  
+const int pathDistances[] = {0,10,500,0,30,180,0,0,50,0,2,10,300,5,5,5,200}; // start with 0,distance en cm
+const char path[] = "BfVLDVLEFDFECFRRFs";  
 // const char path[] ="BRWBRrs"; // stope with s
 //  String lezm tabda b B or W !!!!!
 //  path turns of 90 degrees si 90 degre safya : mahech T or X : ekteb r el l bech idourha bel pid
@@ -60,7 +59,8 @@ int pathSteps = 0;
 boolean isPathTimesArrayCorrect = true;
 boolean isPathArrayCorrect = true;
 boolean stillWaiting = false;
-boolean RUNROBOT = false;
-// colors
+boolean RUNROBOT = false; 
+int SetPoint = 3500; // 2000
+// colors 
 int lineColor = 0;
 int nextMoveColor = 0;

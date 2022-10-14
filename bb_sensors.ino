@@ -75,7 +75,7 @@ void updatesensors(char S = 'B', WhichLineToFollow direction = WhichLineToFollow
             brightness = 255;
             for (int i = 0; i < NUM_LEDS; i++)
             {
-              leds[i] = CHSV(ledColor, 255, brightness);
+              leds[NUM_LEDS-1-i] = CHSV(ledColor, 255, brightness);
             }
             break;
           }
@@ -88,7 +88,7 @@ void updatesensors(char S = 'B', WhichLineToFollow direction = WhichLineToFollow
       // ledColor = constrain(PathColorSettings[i] + lineFollowingColor, 0, 255);
       //Serial.print(" // colorr : ");
       //Serial.print(ledColor);
-      leds[i] = CHSV(ledColor, 255, brightness);
+      leds[NUM_LEDS-1-i] = CHSV(ledColor, 255, brightness);
       // Serial.println("******************************************");
     }
     Serial.println("  ");

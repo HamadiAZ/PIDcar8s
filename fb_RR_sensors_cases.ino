@@ -227,11 +227,12 @@ void case_2_lines()
 void case_111x0()
 { //  left or f
     
-    if (path[pathSteps] == 'F')
+    if (path[pathSteps] == 'f')
     {
         ////Serial.println("FORWARD : PATH F : ");
         pathSteps++;
-        forward();
+        myledwhiteon();
+        forward(200,200);
         delay(100);
         Taction = millis();
     }
@@ -239,6 +240,7 @@ void case_111x0()
     {
         ////Serial.println("90° LEFT : PATH L : ");
         pathSteps++;
+        myledwhiteon();
         delay(50);
         while (1)
         {
@@ -254,6 +256,7 @@ void case_111x0()
     {
         ////Serial.print("left 90 safya with pid");
         int t = millis();
+        myledwhiteon();
         while ((millis() - t) < 2000)
         {
             updatesensors(currentLineColor);
@@ -272,9 +275,10 @@ void case_0x111()
 { //  right or f //
     //////Serial.print("debugging ENTER LOOP  ");
     //////Serial.println(path[pathSteps]);
-    if (path[pathSteps] == 'F')
+    if (path[pathSteps] == 'f')
     {
         Taction = millis();
+        myledwhiteon();
        // ////Serial.println("FORWARD : PATH F : ");
         pathSteps++;
         forward();
@@ -285,6 +289,7 @@ void case_0x111()
     {
         //////Serial.println("90° RIGHT : PATH R : ");
         pathSteps++;
+        myledwhiteon();
         delay(50);
         while (1)
         {

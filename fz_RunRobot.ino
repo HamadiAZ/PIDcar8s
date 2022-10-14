@@ -44,7 +44,7 @@ void Run_Robot(char C = 'A')
         */
         if (compare(IntDsensors, "x111111x") || compare(IntDsensors, "xx111111") || compare(IntDsensors, "111111xx"))
             case_11111();
-        else if (compare(IntDsensors, "1111xx00"))
+        else if (compare(IntDsensors, "111xxx00")||compare(IntDsensors, "xx111100")||compare(IntDsensors, "x1111x00"))
             case_111x0();
         else if (compare(IntDsensors, "00xx1111"))
             case_0x111();
