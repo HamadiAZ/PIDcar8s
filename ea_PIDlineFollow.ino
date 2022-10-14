@@ -8,7 +8,7 @@ const PROGMEM uint8_t leftMaxSpeed = 170;  //
 
  float Kp = 0.05;             // 255: 0.1     110: 0.2
 const PROGMEM float Ki = 0.0;             // 255: 0.05    110: 0.05
-const PROGMEM float Kd = 0.14;             // 255: 0.003   110: 0.004
+ float Kd = 0.14;             // 255: 0.003   110: 0.004
 
 void pidfollow(int C = 1)
 {

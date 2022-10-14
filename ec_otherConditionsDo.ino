@@ -6,18 +6,45 @@ void otherconditionsDO()
   {
     case 0:
       Serial.println(" Condition 1 found ");
-      SetPoint = 4500;
-      while (1){
-        pidfollow(false);
-        updatesensors(currentLineColor);
-        if (countLines() > 1))break;
+      SetPoint = 5000;
+      myledwhiteon();
+      for (int i = 0; i < 3; i++) {
+        Kp = 0.05;
+        Kd = 0.14;
+        while (1) {
+          pidfollow(false);
+          updatesensors(currentLineColor);
+          if (CountLines() > 1)break;
+          }
+        Kp = 0.02;
+        Kd = 0.10;
+        while (1) {
+          pidfollow(false);
+          updatesensors(currentLineColor, WhichLineToFollow::LEFT);
+          if (CountLines() <= 1)break;
+          }
       }
-      
-      while (1){
-        pidfollow(false);
-        updatesensors(currentLineColor,WhichLineToFollow::LEFT);
-        if (countLines() <=1))break;
+      myledwhiteon();
+      SetPoint = 3000;
+      for (int i = 0; i < 3; i++) {
+        Kp = 0.05;
+        Kd = 0.14;
+        while (1) {
+          pidfollow(false);
+          updatesensors(currentLineColor);
+          if (CountLines() > 1)break;
+          }
+        Kp = 0.02;
+        Kd = 0.10;
+        while (1) {
+          pidfollow(false);
+          updatesensors(currentLineColor);
+          if (CountLines() <= 1)break;
+          }
       }
+     myledwhiteon();
+      Kp = 0.05;
+      Kd = 0.14;
       otherconditionsCounter++;
       break;
     case 1:

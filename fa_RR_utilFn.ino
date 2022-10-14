@@ -104,6 +104,15 @@ void autoColorChooser()
             PathColorSettings[i] = 255;
         }
     }
+       else if (path[pathSteps]=='C') // 
+    {
+        for (int i = 1; i < NUM_LEDS - 1; i++)
+        {
+            PathColorSettings[i] = 0;
+        }
+        PathColorSettings[2] = 255;
+        PathColorSettings[4] = 255;        
+    }
     // ========================================== fin affichage dans les led ====================================================
 }
 
