@@ -5,9 +5,9 @@ void case_11111()
         ////Serial.println("FORWARD : PATH F : ");
         myledwhiteon();
         pathSteps++;
-        forward();
+        forward(200,200);
+        delay(120);
         Taction = millis();
-        delay(100);
     }
     else if (path[pathSteps] == 'R')
     {
@@ -54,18 +54,19 @@ void case_11111()
         }
         pathSteps++;
     }
-    else if (path[pathSteps] == 'r')
-    {
-        ////Serial.print("right 90 safya with pid");
-        int t = millis();
-        myledwhiteon();
-        while ((millis() - t) < 500)
-        {
-            updatesensors(currentLineColor);
-            ELSE();
-        }
-        pathSteps++;
-    }
+//    else if (path[pathSteps] == 'r')
+//    {
+//        ////Serial.print("right 90 safya with pid");
+//        int t = millis();
+//        myledwhiteon();
+//        while ((millis() - t) < 500)
+//        {
+//            updatesensors(currentLineColor);
+//            ELSE();
+//        }
+//        pathSteps++;
+//        Taction = millis();
+//    }
     else if (path[pathSteps] == 's')
     {
         ////Serial.println("DEAD STOP , PATHSTRING : s DONE");
@@ -110,7 +111,8 @@ void case_110x1_1x011(int tempsInterval)
             }
             pathSteps++;
         }
-        else if ((path[pathSteps] == 'R') || (path[pathSteps] == 'r'))
+        //else if ((path[pathSteps] == 'R') || (path[pathSteps] == 'r'))
+        else if (path[pathSteps] == 'r')
         {
             ////Serial.print("right 45° angle V");
             myledwhiteon();
@@ -120,6 +122,7 @@ void case_110x1_1x011(int tempsInterval)
                 right(40, 120);
             }
             pathSteps++;
+            Taction = millis();
         }
         else
         {
@@ -263,6 +266,7 @@ void case_111x0()
             ELSE();
         }
         pathSteps++;
+        Taction = millis();
     }
     else
     { // ERREUR DANS PATHSTRING GO FOR PID SAFER
@@ -285,17 +289,18 @@ void case_0x111()
         delay(100);
         Taction = millis();
     }
-    else if (path[pathSteps] == 'R')
+    else if (path[pathSteps] == 'r')
     {
         //////Serial.println("90° RIGHT : PATH R : ");
         pathSteps++;
+        right(100, 200);
         myledwhiteon();
-        delay(50);
+        delay(70);
         while (1)
         {
             right(100, 200); // ////Serial.println("right");
             updatesensors(currentLineColor);
-            if (IntDsensors[7] == 1)
+            if ((IntDsensors[6] == 1 && IntDsensors[5] == 0 && IntDsensors[4] == 0 )||(IntDsensors[4] == 1 && IntDsensors[0] == 0 && IntDsensors[7] == 0 )||(IntDsensors[5] == 1 && IntDsensors[0] == 0 && IntDsensors[7] == 0 ))
                 break;
         }
         Taction = millis();

@@ -102,7 +102,7 @@ void updatesensors(char S = 'B', WhichLineToFollow direction = WhichLineToFollow
       Dsensors[i] = 'B';
     else
       Dsensors[i] = 'W';
-    // Serial.print(Dsensors[i]);Serial.print("  ");
+     Serial.print(Dsensors[i]);Serial.print("  ");
   }
   //  Serial.print("  ");
 

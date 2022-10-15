@@ -111,7 +111,7 @@ void autoColorChooser()
             PathColorSettings[i] = 0;
         }
         PathColorSettings[2] = 255;
-        PathColorSettings[4] = 255;        
+        PathColorSettings[5] = 255;        
     }
     // ========================================== fin affichage dans les led ====================================================
 }

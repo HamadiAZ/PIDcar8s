@@ -32,7 +32,9 @@ void initialCalcTimes()
     speed  :  CM/S
     */
     //float cmToMsFactor = 14.4;
+    //105 == 80 cm reelle
    float cmToMsFactor = 18.4;
+   cmToMsFactor = 23.2;
     int ArraySize = sizeof(pathDistances)/sizeof(pathDistances[0]);
     for (int i = 0; i < ArraySize; i++)
     {

@@ -2,17 +2,24 @@
 void loop()
 {
   //updatesensors('B', WhichLineToFollow::LEFT, true);
-  updatesensors('B', WhichLineToFollow::LEFT);
-  Kp = 0.025;
-  Kd = 0.10;
-  //Run_Robot();
-  pidfollow(false);
-
-  //printreadings(3000);
+// updatesensors('B');
+//  Kp = 0.038;
+//  Kd = 0.14;
+//  SetPoint=4500;
+  Run_Robot();
+// int ArraySize = sizeof(pathDistances)/sizeof(pathDistances[0]);
+// for (int i = 0; i < ArraySize; i++)
+//    {
+//         Serial.println(pathTimes[i]);
+//    }
+//    delay(10000);
+  //pidfollow(false);otherconditionsCounter
+ // Serial.print("otherconditionsCounter : ");
+ //  Serial.println(otherconditionsCounter);
+ // printreadings(3000);
   //forward(200,160);
-  //     delay(2000);
+    //  delay(500);
   //     forward(200,0);
-  //     delay(800);
   //     stope();delay(4000);
   //*********************************************************
   //	forward(200,200);

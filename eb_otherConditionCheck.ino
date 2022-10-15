@@ -5,6 +5,8 @@ void conditions_manager()
     {
         myledwhiteon();
         otherconditionsDO();
+        Taction = millis();
+        otherconditionsCounter++;
         pathSteps++;
     }
     else
@@ -21,12 +23,14 @@ boolean otherconditionsCheck()
         return true;
     case 1:
         Serial.println(" Condition 2 check ");
-
+        return true;
+//        if (compare(IntDsensors, "x111111x") || compare(IntDsensors, "xx111111") || compare(IntDsensors, "111111xx")) return true;
+//        else return false;
         break;
 
     case 2:
         Serial.println(" Condition 3 check ");
-
+        return true;
         break;
 
     case 3:
