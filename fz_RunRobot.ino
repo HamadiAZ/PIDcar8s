@@ -57,7 +57,7 @@ void Run_Robot(char C = 'A')
             case_11111();
         else if (compare(IntDsensors, "111xxx00") || compare(IntDsensors, "xx111100") || compare(IntDsensors, "x1111x00"))
             case_111x0();
-        else if (compare(IntDsensors, "00xx1111"))
+        else if (compare(IntDsensors, "00xx1111")||compare(IntDsensors, "00xxx111")||compare(IntDsensors, "000xxx11")||compare(IntDsensors, "0001111x"))
             case_0x111();
 //        else if (compare(IntDsensors, "11xx0x11") || compare(IntDsensors, "11x0xx11"))
 //            case_110x1_1x011(tempsInterval);

@@ -63,7 +63,7 @@ void autoColorChooser()
             PathColorSettings[i] = 0;
         }
     }
-    else if (path[pathSteps] == 'F')
+    else if (path[pathSteps] == 'F'||path[pathSteps] == 'M')
     {
         for (int i = 0; i < NUM_LEDS; i++)
         {

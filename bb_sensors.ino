@@ -54,7 +54,7 @@ void updatesensors(char S = 'B', WhichLineToFollow direction = WhichLineToFollow
 
         if (isPathTimesArrayCorrect == true)
         {
-          int timeNow = millis();
+          double timeNow = millis();
           int delayBetweenEachAction = 4000;
           if (pathSteps != 0 && isPathTimesArrayCorrect == true)
             delayBetweenEachAction = pathTimes[pathSteps];

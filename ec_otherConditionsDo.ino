@@ -3,7 +3,7 @@
 void otherconditionsDO()
 {
   // Serial.println("otherconditionsDO working !!!!!!!!!!!!!!");
-  int a=1;
+  int a = 1;
   if (otherconditionsCounter == 0)
   {
     stope();
@@ -12,27 +12,25 @@ void otherconditionsDO()
   else if (otherconditionsCounter == a)
   {
     // delay 230
-    for (int i = 3500; i < 5501; i+=100) {
+    for (int i = 3500; i < 5501; i += 100) {
       SetPoint = i;
-      int t = millis();
+      double t = millis();
       while (1) {
         pidfollow(false);
         updatesensors(currentLineColor);
-        if (CountLines() >= 2 || millis() - t > 6)
+        if (CountLines() >= 2 || millis() - t > 8)
           break;
       }
       if (CountLines() >= 2 ) break;
     }
     SetPoint = 5500;
-
-    int t = millis();
+    double t = millis();
     while (true) {
       pidfollow(false);
       updatesensors(currentLineColor);
       if (CountLines() == 2 || millis() - t > 4000)
         break;
     }
-    myledwhiteon();
     t = millis();
     while (true) {
       forward(200, 100);
@@ -47,7 +45,6 @@ void otherconditionsDO()
       if (CountLines() == 2 || millis() - t > 2000)
         break;
     }
-    myledwhiteon();
     t = millis();
     while (true) {
       forward(200, 100);
@@ -62,7 +59,6 @@ void otherconditionsDO()
       if (CountLines() == 2 || millis() - t > 2000)
         break;
     }
-    myledwhiteon();
     t = millis();
     while (true) {
       forward(200, 100);
@@ -74,14 +70,14 @@ void otherconditionsDO()
     Kp = 0.05;
     Kd = 0.14;
   }
-  else if (otherconditionsCounter == (a+1)) {
+  else if (otherconditionsCounter == (a + 1)) {
     SetPoint = 2100;
     Kp = 0.03;
     Kd = 0.14;
-    int t = millis();
+    double t = millis();
     boolean lastWasCountOneLine = true;
     int COUNTER = 0;
-    int timer = millis();
+    double timer = millis();
     while (1) {
       pidfollow(false);
       updatesensors(currentLineColor, WhichLineToFollow::LEFT);

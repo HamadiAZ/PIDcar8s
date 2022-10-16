@@ -20,7 +20,6 @@ void calibratesensors()
         leds[i] = CHSV(0, 0, 0);
         FastLED.show();
     }
-    Serial.println("starting calibration");
     int hue = 1;
     for (uint8_t i = 0; i < NUM_LEDS; i++)
     {
@@ -32,7 +31,7 @@ void calibratesensors()
         leds[i] = CHSV(100, 255, 190);
         FastLED.show();
     }
-    Serial.println("calibration DONE");
+    
     for (uint8_t i = 0; i < SensorCount; i++)
     {
         Serial.print(qtr.calibrationOn.minimum[i]);

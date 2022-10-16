@@ -31,15 +31,23 @@ const int defaultTime = 300;
 //const int pathDistances[] = {0,10,0,0,2,40,2,0,40,0,40}; 
 //const char path[] = "BCCFRRFDrEs";  
 
-// BESTTT                    B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D r  E  s
+// BESTTT                      B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D r  E  s
 //const int pathDistances[] = {0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50}; 
 //const char path[] = "BfVLDVLECFDFECCFRRFDrEs";  
 
 // test
 // cercle ratio 1.23
-// hghjghjg                 B f    V L D  V   L E  C   F D F E C C F R  R  F  D r  E  s
-const int pathDistances[] ={0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50}; 
-const char path[] = "BfVLDVLECFDFECCFRRFDrEs";
+// hghjghjg                 B D r  E  s
+
+//const int pathDistances[] = {0,0,57,0,50}; 
+//const char path[] = "BDMEs";  
+//const int pathDistances[] = {0,0,50}; 
+//const char path[] = "BMLs";  
+
+// BESTTT                    B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D  M  L   V  L  D  V  L E  C   F D F E C C F R  R  F  D  r  E  s
+const int pathDistances[] = {0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,56,100,351,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50}; 
+const char path[] = "BfVLDVLECFDFECCFRRFDMLVLDVLECFDFECCFRRFDrEs";  
+
 
 
 //  String lezm tabda b B or W !!!!!
