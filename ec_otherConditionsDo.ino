@@ -12,7 +12,7 @@ void otherconditionsDO()
   else if (otherconditionsCounter == a)
   {
     // delay 230
-    for (int i = 3500; i < 5501; i += 100) {
+    for (int i = 3500; i < 4801; i += 100) {
       SetPoint = i;
       double t = millis();
       while (1) {
@@ -23,7 +23,7 @@ void otherconditionsDO()
       }
       if (CountLines() >= 2 ) break;
     }
-    SetPoint = 5500;
+    SetPoint = 4800;
     double t = millis();
     while (true) {
       pidfollow(false);

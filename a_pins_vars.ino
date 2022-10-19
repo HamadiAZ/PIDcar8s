@@ -25,30 +25,38 @@ static const uint8_t analog_pins[] = {A7, A6, A5, A4, A3, A2, A1, A0};
 // ********************************************* IMPORTANT PATH STRING : *************************************************************************
 const int defaultTime = 300;
 // jusqua generateur
-//const int pathDistances[] = {0,10,500,0,30,180,0,0,50,0,4,0}; 
-//const char path[] = "BfVLDVLEFDFE";  
+// const int pathDistances[] = {0,10,500,0,30,180,0,0,50,0,4,0};
+// const char path[] = "BfVLDVLEFDFE";
 // men generateur lel finish
-//const int pathDistances[] = {0,10,0,0,2,40,2,0,40,0,40}; 
-//const char path[] = "BCCFRRFDrEs";  
+// const int pathDistances[] = {0,10,0,0,2,40,2,0,40,0,40};
+// const char path[] = "BCCFRRFDrEs";
 
 // BESTTT                      B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D r  E  s
-//const int pathDistances[] = {0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50}; 
-//const char path[] = "BfVLDVLECFDFECCFRRFDrEs";  
+// const int pathDistances[] = {0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50};
+// const char path[] = "BfVLDVLECFDFECCFRRFDrEs";
 
+// best with real distances
+// const int pathDistances[] = {0,25,565,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50};
+// const char path[] = "BfVLDVLECFDFECCFRRFDrEs";
 // test
 // cercle ratio 1.23
 // hghjghjg                 B D r  E  s
 
-//const int pathDistances[] = {0,0,57,0,50}; 
-//const char path[] = "BDMEs";  
-//const int pathDistances[] = {0,0,50}; 
-//const char path[] = "BMLs";  
+// const int pathDistances[] = {0,0,57,0,50};
+// const char path[] = "BDMEs";
+// const int pathDistances[] = {0,0,50};
+// const char path[] = "BMLs";
 
-// BESTTT                    B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D  M  L   V  L  D  V  L E  C   F D F E C C F R  R  F  D  r  E  s
-const int pathDistances[] = {0,25,361,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,56,100,351,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50}; 
-const char path[] = "BfVLDVLECFDFECCFRRFDMLVLDVLECFDFECCFRRFDrEs";  
+// 2 ESSAI                   B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D  M  L   V  L  D  V  L E  C   F D F E C C F R  R  F  D  r  E  s
+// const int pathDistances[] = {0,25,565,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,56,10,555,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50};
+// const char path[] = "BfVLDVLECFDFECCFRRFDMLVLDVLECFDFECCFRRFDrEs";
 
-
+//                            B  f  V  L  D  V  L E  C   F D F E C C F R  R  F  D  M  L  V  L  D  V  L E  C   F D F E C C F R  R  F  D  r  E  s
+ const int pathDistances[] = {0,25,565,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,56,10,555,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50};
+ const char path[] = "BfVLDVLECFDFECCFRRFDMLVLDVLECFDFECCFRRFDrEs";
+ // BESTTT                      B  f V  L     V  L  E C   F D F E C C F  R  R  F D r   E  s
+//const int pathDistances[] = {0,25,565,0,25,130,0,0,131,20,0,7,0,0,0,0,14,68,10,0,57,20,50};
+//const char path[] = "BfVLDVLECFDFECCFRRFDrEs";
 
 //  String lezm tabda b B or W !!!!!
 //  path turns of 90 degrees si 90 degre safya : mahech T or X : ekteb r el l bech idourha bel pid
@@ -58,7 +66,7 @@ const char path[] = "BfVLDVLECFDFECCFRRFDMLVLDVLECFDFECCFRRFDrEs";
 // ********************************************* IMPORTANT PATH STRING : *************************************************************************
 
 // vars
-int pathTimes[sizeof(pathDistances)/sizeof(pathDistances[0])];
+int pathTimes[sizeof(pathDistances) / sizeof(pathDistances[0])];
 int distanceL, distanceR, distanceF;
 int prev_i = 0, prev_error = 0;
 QTRSensors qtr;
@@ -71,7 +79,7 @@ char Dsensors[SensorCount]; // Dsensors : W B , IntDsensors 1 line 0 background 
 static int IntDsensors[SensorCount];
 
 double lastIntDsensorstimes[SensorCount];
- int otherconditionsCounter = 0;
+int otherconditionsCounter = 0;
 char Prevc = 0, mode = 'S', currentLineColor;
 long pos = 0, sv = 0;
 uint16_t position;
@@ -82,8 +90,8 @@ int pathSteps = 0;
 boolean isPathTimesArrayCorrect = true;
 boolean isPathArrayCorrect = true;
 boolean stillWaiting = false;
-boolean RUNROBOT = false; 
+boolean RUNROBOT = false;
 int SetPoint = 3500; // 2000
-// colors 
+// colors
 int lineColor = 0;
 int nextMoveColor = 0;

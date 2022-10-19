@@ -195,7 +195,7 @@ void case_2_lines()
       ////Serial.print("left 45° angle V");
       myledwhiteon();
       left(210, 0);
-      delay(100);
+      delay(150);
       while (true)
       {
         updatesensors(currentLineColor);
